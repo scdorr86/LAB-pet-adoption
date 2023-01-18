@@ -6,6 +6,7 @@ const pets = [
       specialSkill: "Gives sincere apologies.",
       type: "cat",
       imageUrl: "http://kittentoob.com/wp-content/uploads/2015/06/funny-cat-with-a-towel.jpg",
+      //imageUrl: "https://mydinosaurs.com/wp-content/uploads/2017/02/2-3-600x400.jpg"
     },
     {
         id: 2,
@@ -13,7 +14,8 @@ const pets = [
       color: "Brown",
       specialSkill: "Just picks the tomatoes off of a sandwich instead of requesting a whole new sandwich.",
       type: "dino",
-      imageUrl: "http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg",
+      //imageUrl: "http://www.jozilife.co.za/wp-content/uploads/The-Dino-Expo.jpg",
+      imageURL: "https://cdn.designtoscano.com/product_images/pterodactyl-statue-jq6627/606d94b61ac4710018976ce5/zoom.jpg?c=1630684138"
     },
     {
       id: 3,
@@ -29,6 +31,7 @@ const pets = [
       color: "Black",
       specialSkill: "Burps minimally.",
       type: "dog",
+      //imageUrl: "http://cdn.akc.org/content/article-body-image/funny-pembroke_welsh_corgi.jpg"
       imageUrl: "http://cdn.akc.org/content/article-body-image/funny-pembroke_welsh_corgi.jpg"
     },
     {
@@ -61,7 +64,8 @@ const pets = [
       color: "Grey",
       specialSkill: "Comfortable in the outdoors for up to eight hours.",
       type: "dino",
-      imageUrl: "http://www.theouthousers.com/images/jck//ThanosCopter/news/grumpasaur.jpg"
+      //imageUrl: "http://www.theouthousers.com/images/jck//ThanosCopter/news/grumpasaur.jpg"
+      imageUrl: "https://mydinosaurs.com/wp-content/uploads/2017/02/2-3-600x400.jpg"
     },
     {
       id: 9,
@@ -189,7 +193,8 @@ const pets = [
       color: "Brown",
       specialSkill: "Participates in karaoke but does not force others to go out to karaoke.",
       type: "dog",
-      imageUrl: "http://www.dogbreedplus.com/dog_breeds/images/basset-hound-4.jpg"
+      //imageUrl: "http://www.dogbreedplus.com/dog_breeds/images/basset-hound-4.jpg"
+      imageURL: "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/07200501/Basset-Hound-standing-in-the-garden.jpg"
     },
     {
       id: 25,
@@ -240,3 +245,22 @@ const pets = [
       imageUrl: "http://lsae2.iypcdn.com/static//modules/uploads/photos/language1/dino-live-22.jpg?119"
     }
   ];
+
+  const targetingApp = document.querySelector("#container");
+  let domString = "";
+
+  for (const pet of pets) {
+    domString +=
+    `<div class="card" style="width: 18rem;">
+    <img src=${pet.imageUrl} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">${pet.name}</h5>
+      <h6>${pet.color}</h6>
+      <p class="card-text">${pet.specialSkill}</p>
+      <h5>${pet.type}</h5>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>`
+  }
+
+targetingApp.innerHTML = domString;
