@@ -1,3 +1,6 @@
+body {
+  background-color: white;
+}
 #container {
   display: flex;
   flex-wrap: wrap;
@@ -21,6 +24,7 @@ h1 {
 .card {
   margin-bottom: 10px;
   flex-basis: 26%;
+  background-color: floralwhite;
 }
 .buttons button {
   font-weight: bolder;
