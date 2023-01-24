@@ -261,7 +261,7 @@ const pets = [
       <h6>${pet.color}</h6>
       <p class="card-text">${pet.specialSkill}</p>
       <h5>${pet.type}</h5>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <button class="btn btn-outline-danger" id="delete--${pet.id}">Delete</button>
     </div>
   </div>`
   }
@@ -274,11 +274,16 @@ const dogBtn = document.querySelector("#dogs")
 const catBtn = document.querySelector("#cats")
 const dinoBtn = document.querySelector("#dinos")
 const clrBtn = document.querySelector("#reset")
+const addBtn = document.querySelector("#add")
+const form = document.querySelector("#addForm")
+const submitBtn = document.querySelector("#form-submit")
+const cardContainer = document.querySelector("#container")
 
 catBtn.addEventListener("click", catsFunc)
 dogBtn.addEventListener("click", dogsFunc)
 dinoBtn.addEventListener("click", dinoFunc)
 clrBtn.addEventListener("click", clearFunc)
+addBtn.addEventListener("click", () => {form.toggleAttribute("slow")})
 
 function dogsFunc() {
   const filtered = pets.filter(arrItem => arrItem.type === "dog")
@@ -295,6 +300,40 @@ function dinoFunc() {
 function clearFunc() {
   render(pets)
 }
+const createPet = (e) => {
+  e.preventDefault();
+
+const formName = document.querySelector("#name");
+const formColor = document.querySelector("#color"); 
+const formSkill = document.querySelector("#skill"); 
+const formImg = document.querySelector("#image"); 
+const formType = document.querySelector("#petType");
+
+  const newMemberObj = {
+    id: pets.length +1,
+    name: formName.value,
+    color: formColor.value,
+    specialSkill: formSkill.value,
+    type: formType.value,
+    imageUrl: formImg.value
+  }
+
+  pets.push(newMemberObj)
+
+  render(pets)
+}
+submitBtn.addEventListener("click", createPet)
+
+cardContainer.addEventListener("click", (event) => {
+  if (event.target.id.includes("delete")) {
+    const [, petId] = event.target.id.split("--");
+    const indexOfPet = pets.findIndex(
+      (obj) => obj.id === Number(petId) 
+    );
+    pets.splice(indexOfPet, 1);
+    render(pets)
+  }
+})
 
 
 render(pets)

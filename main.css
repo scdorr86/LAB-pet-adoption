@@ -30,3 +30,11 @@ h1 {
   font-weight: bolder;
   color: white;
 }
+#addForm {
+  display: flex;
+  justify-content: center;
+}
+.btn-outline-danger {
+  font-weight: bold;
+  text-decoration: underline;
+}
