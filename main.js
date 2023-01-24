@@ -275,7 +275,7 @@ const catBtn = document.querySelector("#cats")
 const dinoBtn = document.querySelector("#dinos")
 const clrBtn = document.querySelector("#reset")
 const addBtn = document.querySelector("#add")
-const form = document.querySelector("#addForm")
+const formDiv = document.querySelector("#formDiv")
 const submitBtn = document.querySelector("#form-submit")
 const cardContainer = document.querySelector("#container")
 
@@ -283,7 +283,7 @@ catBtn.addEventListener("click", catsFunc)
 dogBtn.addEventListener("click", dogsFunc)
 dinoBtn.addEventListener("click", dinoFunc)
 clrBtn.addEventListener("click", clearFunc)
-addBtn.addEventListener("click", () => {form.toggleAttribute("slow")})
+//addBtn.addEventListener("click", toggleFunc)
 
 function dogsFunc() {
   const filtered = pets.filter(arrItem => arrItem.type === "dog")
@@ -335,5 +335,23 @@ cardContainer.addEventListener("click", (event) => {
   }
 })
 
+const formEl = document.getElementById("form");
+
+/*function toggleFunc () {
+    if (formDiv.style.display === "flex") {
+      console.log("firstCheck")
+      formDiv.style.dispay = "none";
+  } else if (formEl.style.display === "none") {
+      console.log("second check")
+      formDiv.style.display = "flex"
+  } else {
+    formDiv.style.display = "none";
+  }
+}*/
+
+function toggleFunc () {
+  console.log("test")
+  formEl.classList.toggle("unhide")
+}
 
 render(pets)
