@@ -44,3 +44,10 @@ h1 {
 .unhide {
   display: inline-flex;
 }
+#search {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin: 10px auto;
+}

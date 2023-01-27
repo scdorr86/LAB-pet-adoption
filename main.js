@@ -321,6 +321,7 @@ const formType = document.querySelector("#petType");
   pets.push(newMemberObj)
 
   render(pets)
+  formEl.reset()
 }
 submitBtn.addEventListener("click", createPet)
 
@@ -353,5 +354,19 @@ function toggleFunc () {
   console.log("test")
   formEl.classList.toggle("unhide")
 }
+
+const search = (event) => {
+  const userInput = event.target.value.toLowerCase();
+  const searchResult = pets.filter(index => 
+    index.type.toLowerCase().includes(userInput) ||
+    index.name.toLowerCase().includes(userInput) ||
+    index.color.toLowerCase().includes(userInput) ||
+    index.specialSkill.toLowerCase().includes(userInput)
+    )
+
+    render(searchResult);
+}
+
+document.querySelector("#searchInput").addEventListener("keyup", search);
 
 render(pets)
